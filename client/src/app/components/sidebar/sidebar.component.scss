@@ -1,0 +1,63 @@
+.container {
+    margin-top: 15%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.currentPlayer {
+    background-color: #cc0000;
+    color: white;
+    transition: all ease-in 0.3s;
+    h3 {
+        animation: size-change 1s infinite;
+        animation-timing-function: linear;
+    }
+}
+
+section {
+    width: 80%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background-color: #047404;
+    border-radius: 4px;
+    color: white;
+    transition: all ease-in 0.3s;
+    h3 {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+}
+
+@keyframes size-change {
+    0% {
+        color: white;
+    }
+    25% {
+        color: white;
+    }
+    50% {
+        color: #cc0000;
+    }
+    75% {
+        color: white;
+    }
+    100% {
+        color: white;
+    }
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .number {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+}

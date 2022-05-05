@@ -1,0 +1,47 @@
+<div class="container">
+    <section
+        id="player-1"
+        [ngClass]="{
+            currentPlayer: (currentPlayer && currentPlayerName === info1.playerName) || (!currentPlayer && info1.playerName !== currentPlayerName)
+        }"
+    >
+        <h3>{{ info1.playerName }}</h3>
+        <div class="details">
+            <div>
+                <span class="number">{{ info1.score }}</span>
+                <span>points</span>
+            </div>
+            <div>
+                <span class="number">{{ info1.easelSize }}</span>
+                <span>lettres</span>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="details">
+            <div id="timer" class="number"></div>
+            <div>
+                <span class="number">{{ reserveSize }}</span>
+                <span>lettres dans la réserve</span>
+            </div>
+        </div>
+    </section>
+    <section
+        id="player-2"
+        [ngClass]="{
+            currentPlayer: (currentPlayer && currentPlayerName === info2.playerName) || (!currentPlayer && info2.playerName !== currentPlayerName)
+        }"
+    >
+        <h3>{{ info2.playerName }}</h3>
+        <div class="details">
+            <div>
+                <span class="number">{{ info2.score }}</span>
+                <span>points</span>
+            </div>
+            <div>
+                <span class="number">{{ info2.easelSize }}</span>
+                <span>lettres</span>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,29 @@
+<mat-card>
+    <div class="logo">
+        <img src="https://bit.ly/3m206ss" width="400" height="80" alt="Logo Scrabble" />
+        <h1>Choisir une option</h1>
+    </div>
+    <div class="justified">
+        <button mat-raised-button color="primary" class="button" id="classic-button" [routerLink]="['/classic']">
+            <mat-icon>sports_esports</mat-icon> Scrabble Classique
+        </button>
+        <button mat-raised-button color="primary" class="button" id="log2990-button" [routerLink]="['/log2990']">
+            <mat-icon>checklist_rtl</mat-icon> Scrabble LOG2990
+        </button>
+        <button mat-raised-button color="primary" class="button" id="high-scores-button" [routerLink]="['/high-scores']">
+            <mat-icon>leaderboard</mat-icon> Meilleurs scores
+        </button>
+    </div>
+
+    <div class="footer-item">
+        <h2 class="team-name">Équipe 205</h2>
+        <mat-chip-list>
+            <mat-chip color="primary">Racahd Chazbekh - 1998371</mat-chip>
+            <mat-chip color="primary">Jean Siffert - 1984533</mat-chip>
+            <mat-chip color="primary">Mehdi Sehad - 1891394</mat-chip>
+            <mat-chip color="primary">Abdeldjalil Fradj - 2047735</mat-chip>
+            <mat-chip color="primary">Ahmed Sidi Ould Ahmedou - 2001565</mat-chip>
+            <mat-chip color="primary">Oussama Lourhmati - 2081643</mat-chip>
+        </mat-chip-list>
+    </div>
+</mat-card>

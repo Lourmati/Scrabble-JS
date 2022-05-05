@@ -1,0 +1,14 @@
+<div
+    id="test"
+    #div
+    [ngStyle]="{ backgroundColor: borderColor }"
+    class="container"
+    #click
+    (click)="handleLeftClick()"
+    (contextmenu)="handleRightClick()"
+>
+    <div oncontextmenu="() => false" class="letterStyle">
+        {{ card.letter }}
+        <div class="pointStyle">{{ card.point }}</div>
+    </div>
+</div>

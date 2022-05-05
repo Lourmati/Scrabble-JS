@@ -1,0 +1,3 @@
+<div class="container" (click)="handleComponentClick($event)">
+    <app-letter *ngFor="let card of letters; index as index" [card]="card" [index]="index"></app-letter>
+</div>

@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Modifier la liste de noms des joueurs virtuels</h2>
+<mat-dialog-content>
+    <form [formGroup]="formGroup" (ngSubmit)="edit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" name="name" formControlName="name" />
+        </mat-form-field>
+        <mat-dialog-actions>
+            <button type="button" mat-button mat-dialog-close>Annuler</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="!formGroup.valid">Modifier</button>
+        </mat-dialog-actions>
+        <br />
+    </form>
+</mat-dialog-content>

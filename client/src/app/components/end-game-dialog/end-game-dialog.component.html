@@ -1,0 +1,7 @@
+<h2 mat-dialog-title>Partie terminée</h2>
+<div color="primary">
+    <mat-dialog-content>{{ data.content }}</mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" [routerLink]="['/home']">Quitter</button>
+    </mat-dialog-actions>
+</div>

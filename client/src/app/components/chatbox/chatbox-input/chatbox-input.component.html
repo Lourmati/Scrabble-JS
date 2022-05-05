@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill">
+    <mat-label for="message">Message</mat-label>
+    <input
+        onfocus="this.select()"
+        matInput
+        id="message"
+        [(ngModel)]="message"
+        (keyup)="handleKeyPressEvent($event)"
+        [minlength]="messageMinLength"
+        [maxlength]="messageMaxLength"
+        (click)="handleClick($event)"
+    />
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="emitMessage()"><mat-icon>send</mat-icon> Envoyer</button>

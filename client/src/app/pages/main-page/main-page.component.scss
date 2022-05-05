@@ -1,0 +1,60 @@
+.justified {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host {
+    background-image: url('https://wallpapercave.com/wp/wp9104704.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+mat-card {
+    width: 30%;
+    min-width: 500px;
+    margin-top: 4rem;
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+.logo {
+    display: grid;
+    place-items: center;
+}
+
+.button {
+    min-width: 60%;
+    padding: 0.5rem 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.team-name {
+    margin-top: 0.25em;
+    margin-bottom: 1rem;
+    color: green;
+    font-weight: bold;
+}
+
+.footer-item {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.footer-item p :nth-child(even) {
+    color: orange;
+    font-size: small;
+}
+.footer-item p :nth-child(odd) {
+    color: blue;
+    font-size: small;
+}

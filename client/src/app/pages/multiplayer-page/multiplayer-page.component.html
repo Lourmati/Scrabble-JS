@@ -1,0 +1,11 @@
+<mat-card class="main-container">
+    <div class="logo">
+        <img src="https://bit.ly/3m206ss" width="400" height="80" alt="Logo Scrabble" />
+        <h1>Mode multijoueur</h1>
+    </div>
+    <div class="center">
+        <button mat-raised-button color="primary" routerLink="create"><mat-icon>add_circle_outline</mat-icon> Créer une partie</button>
+        <button mat-raised-button color="primary" routerLink="join"><mat-icon>login</mat-icon> Rejoindre une partie</button>
+    </div>
+    <button mat-raised-button color="primary" [routerLink]="['/classic']"><mat-icon>arrow_back</mat-icon> Retour</button>
+</mat-card>

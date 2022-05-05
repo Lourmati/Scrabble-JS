@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Modifier un dictionnaire</h2>
+<mat-dialog-content>
+    <form [formGroup]="formGroup" (ngSubmit)="edit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Titre</mat-label>
+            <input matInput type="text" name="title" formControlName="title" />
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput type="text" name="description" formControlName="description" />
+        </mat-form-field>
+        <mat-dialog-actions>
+            <button type="button" mat-button mat-dialog-close>Annuler</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="!formGroup.valid">Modifier</button>
+        </mat-dialog-actions>
+        <br />
+    </form>
+</mat-dialog-content>

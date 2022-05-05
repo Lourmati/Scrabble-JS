@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="grid">
+        <div>
+            <h2>Meilleurs scores en mode Classique</h2>
+            <table mat-table [dataSource]="bestScores.classic">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Joueur</th>
+                    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                </ng-container>
+                <ng-container matColumnDef="score">
+                    <th mat-header-cell *matHeaderCellDef>Score</th>
+                    <td mat-cell *matCellDef="let element">{{ element.score }}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="bestScoresColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: bestScoresColumns"></tr>
+            </table>
+            <br />
+            <button mat-flat-button color="warn" (click)="reset()">Réinitialiser les meilleurs scores</button>
+        </div>
+        <div>
+            <h2>Meilleurs scores en mode LOG2990</h2>
+            <table mat-table [dataSource]="bestScores.log2990">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Joueur</th>
+                    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+                </ng-container>
+                <ng-container matColumnDef="score">
+                    <th mat-header-cell *matHeaderCellDef>Score</th>
+                    <td mat-cell *matCellDef="let element">{{ element.score }}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="bestScoresColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: bestScoresColumns"></tr>
+            </table>
+        </div>
+    </div>
+</div>

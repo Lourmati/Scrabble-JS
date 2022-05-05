@@ -1,0 +1,14 @@
+<mat-card>
+    <div class="logo">
+        <img src="https://bit.ly/3m206ss" width="400" height="80" alt="Logo Scrabble" />
+        <h1>En attente d'un autre joueur</h1>
+    </div>
+    <mat-spinner diameter="100" strokeWidth="10" class="mat-spinner-color"></mat-spinner>
+    <h2 *ngIf="guest">{{ guest.name }} souhaite rejoindre la partie</h2>
+    <button mat-raised-button color="primary" [routerLink]="[backLink]" (click)="cancelRoom()"><mat-icon>close</mat-icon> Annuler</button>
+    <button mat-raised-button color="primary" (click)="accept()" [disabled]="!guest"><mat-icon>check_circle_outline</mat-icon> Accepter</button>
+    <button mat-raised-button color="primary" (click)="reject()" [disabled]="!guest"><mat-icon>block</mat-icon> Rejeter</button>
+    <button mat-raised-button color="primary" (click)="cancelRoom()" [routerLink]="[soloRedirection]">
+        <mat-icon>person</mat-icon>Convertir en mode Solo
+    </button>
+</mat-card>

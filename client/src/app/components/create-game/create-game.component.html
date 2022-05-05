@@ -1,0 +1,37 @@
+<mat-card>
+    <div class="logo">
+        <img src="https://bit.ly/3m206ss" width="400" height="80" alt="Logo Scrabble" />
+        <h1>Créer une partie <span *ngIf="gameType === 0">solo</span><span *ngIf="gameType === 1">multijoueur</span></h1>
+    </div>
+    <form [formGroup]="paramsForm">
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" id="name" formControlName="name" />
+        </mat-form-field>
+        <mat-form-field *ngIf="gameType === 0">
+            <mat-label>Niveau de l'adversaire</mat-label>
+            <mat-select [(value)]="level">
+                <mat-option *ngFor="let option of levelOptions" [value]="option.value">{{ option.name }} </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Minuterie</mat-label>
+            <mat-select [(value)]="timer">
+                <mat-option *ngFor="let option of timerOptions" [value]="option.value">{{ option.name }} </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Dictionnaire</mat-label>
+            <mat-select [(value)]="dictionary">
+                <mat-option *ngFor="let option of dictionaryOptions" [value]="option.value">{{ option.name }} </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" [routerLink]="[backLink]"><mat-icon>arrow_back</mat-icon> Retour</button>
+    <button class="confirm" mat-raised-button color="primary" [disabled]="paramsForm.invalid" (click)="confirm()">
+        <mat-icon>check</mat-icon> Confirmer les paramètres
+    </button>
+    <button class="create" mat-raised-button color="primary" [disabled]="!confirmed || paramsForm.invalid" (click)="createGame()">
+        <mat-icon>sports_esports</mat-icon> Créer une partie
+    </button>
+</mat-card>

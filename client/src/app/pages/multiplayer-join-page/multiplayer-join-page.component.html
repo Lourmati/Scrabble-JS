@@ -1,0 +1,80 @@
+<mat-card>
+    <div class="logo">
+        <img src="https://bit.ly/3m206ss" width="400" height="80" alt="Logo Scrabble" />
+        <h1>Rejoindre une partie multijoueur</h1>
+    </div>
+    <div *ngIf="!isSelected">
+        <div *ngIf="availableRooms?.length === 0">
+            <h3>
+                Il n'y a aucune partie disponible, pourquoi pas en
+                <button mat-stroked-button color="primary" [routerLink]="[backLink + '/create']">créer une</button> ?
+            </h3>
+        </div>
+        <div *ngIf="availableRooms?.length ?? 0 > 0">
+            <table mat-table [dataSource]="availableRooms" class="mat-elevation-z8">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Nom du joueur</th>
+                    <td mat-cell *matCellDef="let element">{{ element.playerName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="timer">
+                    <th mat-header-cell *matHeaderCellDef>Minuterie</th>
+                    <td mat-cell *matCellDef="let element">{{ element.parameters.timer }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="dictionary">
+                    <th mat-header-cell *matHeaderCellDef>Dictionnaire</th>
+                    <td mat-cell *matCellDef="let element">{{ element.parameters.dictionary }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="button">
+                    <th mat-header-cell *matHeaderCellDef>Action</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-raised-button color="primary" class="select" (click)="selectRoom(element.id)">
+                            <mat-icon>login</mat-icon> Rejoindre
+                        </button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+        <button mat-raised-button color="primary" [routerLink]="[backLink]"><mat-icon>arrow_back</mat-icon> Retour</button>
+        <button
+            class="select-random"
+            mat-raised-button
+            color="primary"
+            *ngIf="availableRooms?.length !== 0"
+            [disabled]="(availableRooms?.length || 2) < 2"
+            (click)="selectRandomRoom()"
+        >
+            <mat-icon>shuffle</mat-icon> Sélection aléatoire
+        </button>
+        <button mat-raised-button color="primary" (click)="cancelJoinRequest()" [routerLink]="[soloRedirection]">
+            <mat-icon>person</mat-icon>Convertir en mode Solo
+        </button>
+    </div>
+    <form [formGroup]="nameForm" *ngIf="isSelected && !isWaiting">
+        <mat-form-field value="Nom" class="name">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" id="name" formControlName="name" [(ngModel)]="name" required />
+            <mat-error *ngIf="hasError('name', 'required')">Le nom est obligatoire</mat-error>
+            <mat-error *ngIf="hasError('name', 'maxlength')">Vous avez plus que 12 caractères</mat-error>
+            <mat-error *ngIf="hasError('name', 'minlength')">Le nom doit contenir au moins 4 charactères</mat-error>
+            <mat-error *ngIf="hasError('name', 'pattern')">Le nom est invalide</mat-error>
+        </mat-form-field>
+        <button class="join-request" mat-raised-button color="primary" [disabled]="nameForm.invalid" (click)="joinRequest()">
+            <mat-icon>login</mat-icon> Rejoindre
+        </button>
+    </form>
+    <div *ngIf="isSelected && isWaiting">
+        <mat-spinner diameter="100" strokeWidth="10" class="mat-spinner-color"></mat-spinner>
+        <h3 *ngIf="message">{{ message }}</h3>
+        <button class="cancel-request" mat-raised-button color="primary" (click)="cancelJoinRequest()">
+            <mat-icon>arrow_back</mat-icon> Annuler
+        </button>
+        <button mat-raised-button color="primary" (click)="cancelJoinRequest()" [routerLink]="soloRedirection">
+            <mat-icon>person</mat-icon>Convertir en mode Solo
+        </button>
+    </div>
+</mat-card>

@@ -1,0 +1,39 @@
+:host {
+    background-image: url('https://wallpapercave.com/wp/wp9104704.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+mat-card {
+    width: 40%;
+    min-width: 600px;
+    margin-top: 4rem;
+    padding: 2rem;
+    padding-bottom: 3rem;
+}
+
+mat-form-field {
+    display: block;
+}
+
+.logo {
+    display: grid;
+    place-items: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    margin: 0.2rem;
+    float: center;
+    font-size: 15px;
+    height: 40px;
+    transition: 0.3s;
+}

@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Meilleurs scores mode LOG2990</h2>
+<div color="primary">
+    <mat-dialog-content>
+        <div *ngIf="getServerAvailability() === 'Available' && dataSource">
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="array">
+                <ng-container matColumnDef="position">
+                    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.position }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Joueurs </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="score">
+                    <mat-header-cell *matHeaderCellDef> Scores </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.score }} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            </mat-table>
+        </div>
+        <div *ngIf="getServerAvailability() === 'NotAvailable'">serveur/la base de données ne sont pas accessibles</div>
+        <div *ngIf="getServerAvailability() === 'Undefined'">chargement des données ...</div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,32 @@
+.container {
+    height: 100vh !important;
+    width: 100vw !important;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 0.05fr;
+    background-color: white;
+}
+
+.left {
+    margin-top: 15%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    width: 75%;
+    height: auto;
+}
+
+.center {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    .grid {
+        padding: 2rem;
+    }
+}

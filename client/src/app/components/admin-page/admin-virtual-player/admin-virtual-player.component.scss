@@ -1,0 +1,25 @@
+.content {
+    padding: 2rem;
+}
+
+.mat-row {
+    height: auto;
+}
+
+.mat-cell,
+.mat-header-cell {
+    padding: 0.5rem 1.5rem;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    div {
+        margin: 0 2rem;
+    }
+}
+
+button[type='submit'] {
+    margin-left: 2rem;
+}

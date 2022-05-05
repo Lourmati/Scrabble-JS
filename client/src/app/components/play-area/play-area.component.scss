@@ -1,0 +1,20 @@
+#grid-container {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+canvas {
+    margin: auto;
+    outline: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+:host:focus,
+#grid-container:focus {
+    outline: none;
+}

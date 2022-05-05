@@ -1,0 +1,36 @@
+<div class="container">
+    <section>
+        <h3>Objectifs Publics <mat-icon>public</mat-icon></h3>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let objective of publicObjectives">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ objective.title }}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{ objective.points }} pts <mat-icon *ngIf="objective.done">check_circle</mat-icon>
+                        <mat-icon *ngIf="!objective.done">check_circle_outline</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{ objective.description }}</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </section>
+    <section>
+        <h3>Objectifs Privés <mat-icon>lock</mat-icon></h3>
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ privateObjective.title }}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{ privateObjective.points }} pts <mat-icon *ngIf="privateObjective.done">check_circle</mat-icon>
+                        <mat-icon *ngIf="!privateObjective.done">check_circle_outline</mat-icon>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{ privateObjective.description }}</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </section>
+</div>

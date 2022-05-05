@@ -1,0 +1,56 @@
+<div class="content">
+    <h2>Historique des parties</h2>
+    <table mat-table [dataSource]="gameHistory">
+        <ng-container matColumnDef="gameMode">
+            <th mat-header-cell *matHeaderCellDef>Mode de jeu</th>
+            <td mat-cell *matCellDef="let element">{{ element.gameMode === 0 ? 'Classique' : 'LOG2990' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef>Date de début</th>
+            <td mat-cell *matCellDef="let element">{{ element.start }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef>Durée</th>
+            <td mat-cell *matCellDef="let element">{{ element.duration.minutes }}:{{ element.duration.seconds }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name1">
+            <th mat-header-cell *matHeaderCellDef>Nom du premier joueur</th>
+            <td mat-cell *matCellDef="let element">{{ element.players[0].player.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="score1">
+            <th mat-header-cell *matHeaderCellDef>Score du premier joueur</th>
+            <td mat-cell *matCellDef="let element">{{ element.players[0].score }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name2">
+            <th mat-header-cell *matHeaderCellDef>Nom du second joueur</th>
+            <td mat-cell *matCellDef="let element">{{ element.players[1].player.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="score2">
+            <th mat-header-cell *matHeaderCellDef>Score du second joueur</th>
+            <td mat-cell *matCellDef="let element">{{ element.players[1].score }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button color="warn" (click)="delete(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="gameHistoryColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: gameHistoryColumns"></tr>
+    </table>
+    <br /><br />
+    <div>
+        <button mat-flat-button color="primary" (click)="update()">Mettre à jour l'historique</button>
+        <button mat-flat-button color="warn" (click)="reset()">Supprimer l'historique</button>
+    </div>
+</div>

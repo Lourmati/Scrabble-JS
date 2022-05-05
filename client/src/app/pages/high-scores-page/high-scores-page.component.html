@@ -1,0 +1,15 @@
+<mat-card>
+    <div class="logo">
+        <img src="https://bit.ly/3m206ss" width="400" height="80" alt="Logo Scrabble" />
+        <h1>Meilleures scores</h1>
+    </div>
+    <div class="center">
+        <button mat-raised-button color="primary" class="button" id="classic-button" (click)="openScoresClassique()">
+            <mat-icon>sports_esports</mat-icon>Scores Scrabble Classique
+        </button>
+        <button mat-raised-button color="primary" class="button" id="log2990-button" (click)="openScoresLOG2990()">
+            <mat-icon>checklist_rtl</mat-icon> Scores Scrabble LOG2990
+        </button>
+    </div>
+    <button mat-raised-button color="primary" class="button" routerLink="/home"><mat-icon>arrow_back</mat-icon> Retour</button>
+</mat-card>

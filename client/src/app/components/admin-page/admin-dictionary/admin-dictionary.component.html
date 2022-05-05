@@ -1,0 +1,65 @@
+<div class="content">
+    <h2>Dictionnaires</h2>
+    <table mat-table [dataSource]="dictionaries">
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Titre</th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.title }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef>Description</th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.description }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="filename">
+            <th mat-header-cell *matHeaderCellDef>Fichier</th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.filename }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button color="basic" [disabled]="element.filename === dictionaryDefault" (click)="edit(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button color="warn" [disabled]="element.filename === dictionaryDefault" (click)="delete(element.filename)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="dictionariesColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: dictionariesColumns"></tr>
+    </table>
+    <div class="flex">
+        <div>
+            <h3>Ajout d'un nouveau dictionnaire</h3>
+            <form [formGroup]="addDictionaryForm" (ngSubmit)="add()">
+                <input
+                    type="file"
+                    style="display: none"
+                    name="dictionary"
+                    formControlName="dictionary"
+                    #uploadFileButton
+                    (change)="onFileSelected($event)"
+                />
+                <button mat-button color="primary" type="button" (click)="uploadFileButton.click()">
+                    <mat-icon>attach_file</mat-icon> Téléverser le fichier
+                </button>
+                <button mat-flat-button color="primary" type="submit" [disabled]="!addDictionaryForm.valid">Ajouter</button>
+                <br /><br />
+                <p *ngIf="selectedFile">Fichier sélectionné : {{ selectedFile }}</p>
+            </form>
+        </div>
+        <div>
+            <h3>Réinitialiser tous les dictionnaires</h3>
+            <button mat-flat-button color="warn" (click)="reset()">Réinitialiser</button>
+        </div>
+    </div>
+</div>

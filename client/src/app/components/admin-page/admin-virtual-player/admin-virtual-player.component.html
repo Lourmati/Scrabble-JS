@@ -1,0 +1,90 @@
+<div class="content">
+    <div class="grid">
+        <div>
+            <h2>Noms des joueurs virtuels débutants</h2>
+            <table mat-table [dataSource]="virtualPlayerNames.beginner">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Nom</th>
+                    <td mat-cell *matCellDef="let element">{{ element }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button
+                            mat-button
+                            color="basic"
+                            [disabled]="defaultNames.beginner.includes(element)"
+                            (click)="edit(element, virtualPlayerValueBeginner)"
+                        >
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button
+                            mat-button
+                            color="warn"
+                            [disabled]="defaultNames.beginner.includes(element)"
+                            (click)="delete(element, virtualPlayerValueBeginner)"
+                        >
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="virtualPlayerNamesColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: virtualPlayerNamesColumns"></tr>
+            </table>
+            <br />
+            <form [formGroup]="formGroupBeginner" (ngSubmit)="add(virtualPlayerValueBeginner)">
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input matInput type="text" name="name" formControlName="name" />
+                </mat-form-field>
+                <button mat-flat-button color="primary" type="submit" [disabled]="!formGroupBeginner.valid">Ajouter</button>
+            </form>
+            <br />
+            <button mat-flat-button color="warn" (click)="reset()">Réinitialiser tous les noms</button>
+        </div>
+        <div>
+            <h2>Noms des joueurs virtuels experts</h2>
+            <table mat-table [dataSource]="virtualPlayerNames.expert">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Nom</th>
+                    <td mat-cell *matCellDef="let element">{{ element }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <button
+                            mat-button
+                            color="basic"
+                            [disabled]="defaultNames.expert.includes(element)"
+                            (click)="edit(element, virtualPlayerValueExpert)"
+                        >
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button
+                            mat-button
+                            color="warn"
+                            [disabled]="defaultNames.expert.includes(element)"
+                            (click)="delete(element, virtualPlayerValueExpert)"
+                        >
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="virtualPlayerNamesColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: virtualPlayerNamesColumns"></tr>
+            </table>
+            <br />
+            <form [formGroup]="formGroupExpert" (ngSubmit)="add(virtualPlayerValueExpert)">
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input matInput type="text" name="name" formControlName="name" />
+                </mat-form-field>
+                <button mat-flat-button color="primary" type="submit" [disabled]="!formGroupExpert.valid">Ajouter</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+export const EVENT_ROOM_CREATE = 'room:create';
+export const EVENT_ROOM_CANCEL = 'room:cancel';
+export const EVENT_ROOM_JOIN_REQUEST = 'room:join_request';
+export const EVENT_ROOM_CANCEL_JOIN_REQUEST = 'room:cancel_join_request';
+export const EVENT_ROOM_ACCEPT_JOIN_REQUEST = 'room:accept_join_request';
+export const EVENT_ROOM_REJECT_JOIN_REQUEST = 'room:reject_join_request';
+export const EVENT_ROOM_AVAILABLE_ROOMS_REQUEST = 'room:available_rooms_request';
+export const EVENT_GAME_CREATE_SOLO = 'game:create_solo';
+export const EVENT_CHATBOX_MESSAGE = 'chatbox:message';
+export const EVENT_GAME_SURRENDER = 'game:surrender';
+export const EVENT_DICTIONARY_UPDATE = 'dictionary:update';
+export const EVENT_DICTIONARY_UPDATED = 'dictionary:updated';
+export const EVENT_DISCONNECT = 'disconnect';

@@ -1,0 +1,30 @@
+<div class="container" (click)="handleComponentClick($event)">
+    <div class="left">
+        <div class="logo">
+            <img src="https://bit.ly/3m206ss" width="190" height="40" alt="Logo Scrabble" />
+        </div>
+        <div class="objectives">
+            <app-objectives *ngIf="this.mode === 'log2990'"></app-objectives>
+        </div>
+        <div class="toolbar">
+            <app-control-panel class="control-panel"></app-control-panel>
+        </div>
+    </div>
+    <div class="center">
+        <div class="grid">
+            <app-play-area class="play-area" tabindex="0"></app-play-area>
+        </div>
+        <div class="easel">
+            <app-easel class="easel"></app-easel>
+        </div>
+    </div>
+    <div class="right">
+        <div class="sidebar">
+            <app-sidebar class="sidebar"></app-sidebar>
+        </div>
+        <div class="chatbox">
+            <app-chatbox class="chatbox"></app-chatbox>
+        </div>
+    </div>
+    <app-end-game></app-end-game>
+</div>
